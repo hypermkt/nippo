@@ -3,9 +3,14 @@
   "main": "main.js",
   "scripts": {
     "start": "npm-run-all --parallel server build",
-    "build": "browserify -e src/js/main.js -o public app.js",
+    "build": "browserify -e src/js/main.js -o public/app.js",
     "server": "http-server ./public -o -p 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
   },
   "dependencies": {
     "vue": "^2.0.5",
@@ -14,6 +19,9 @@
   },
   "devDependencies": {
     "aliasify": "^2.1.0",
+    "babel-core": "^6.18.2",
+    "babel-preset-es2015": "^6.18.0",
+    "babelify": "^7.3.0",
     "browserify": "^13.1.1",
     "http-server": "^0.9.0",
     "npm-run-all": "^3.1.1"
