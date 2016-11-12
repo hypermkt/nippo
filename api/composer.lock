@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d89f77b3a3eb92a80721cae6ea5fdf55",
-    "content-hash": "3bbee0eb882fba009d9886d9d7f4b79e",
+    "hash": "daa0cf1720cd45fbbf229ac68cd3a503",
+    "content-hash": "c264f651a30eba747a434e7e9b478e01",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1426,6 +1426,48 @@
                 "routing"
             ],
             "time": "2016-06-12 19:08:51"
+        },
+        {
+            "name": "palanik/lumen-cors",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/palanik/lumen-cors.git",
+                "reference": "39ecb83bf4bea8553a6a406f8ab6355fd0983a24"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/palanik/lumen-cors/zipball/39ecb83bf4bea8553a6a406f8ab6355fd0983a24",
+                "reference": "39ecb83bf4bea8553a6a406f8ab6355fd0983a24",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "palanik\\lumen\\Middleware\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "palanik"
+                }
+            ],
+            "description": "Cross-origin resource sharing (CORS) middleware for Lumen micro-framework.",
+            "homepage": "https://github.com/palanik/lumen-cors",
+            "keywords": [
+                "cors",
+                "corslumen",
+                "cross-origin",
+                "laravel",
+                "lumen",
+                "lumencors",
+                "preflight"
+            ],
+            "time": "2016-06-07 15:28:08"
         },
         {
             "name": "paragonie/random_compat",
@@ -3570,7 +3612,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "palanik/lumen-cors": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
