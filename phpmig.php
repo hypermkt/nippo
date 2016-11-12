@@ -1,18 +1,20 @@
 <?php
 
 use \Phpmig\Adapter;
+use \Pimple\Container;
 
-$container = new ArrayObject();
+$container = new Container();
 
-// replace this with a better Phpmig\Adapter\AdapterInterface
-$container['phpmig.adapter'] = new Adapter\File\Flat(__DIR__ . DIRECTORY_SEPARATOR . 'migrations/.migrations.log');
+$container['db'] = function () {
+    $dbh = new PDO('mysql:dbname=nippo;host=127.0.0.1','root','');
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    return $dbh;
+};
+
+$container['phpmig.adapter'] = function ($c) {
+    return new Adapter\PDO\Sql($c['db'], 'migrations');
+};
 
 $container['phpmig.migrations_path'] = __DIR__ . DIRECTORY_SEPARATOR . 'migrations';
-
-// You can also provide an array of migration files
-// $container['phpmig.migrations'] = array_merge(
-//     glob('migrations_1/*.php'),
-//     glob('migrations_2/*.php')
-// );
 
 return $container;
