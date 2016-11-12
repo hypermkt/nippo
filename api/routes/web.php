@@ -18,3 +18,4 @@ $app->get('/', function () use ($app) {
 $app->get('api/nippoes', 'NippoController@index');
 $app->post('api/nippoes', 'NippoController@create');
 $app->put('api/nippoes/{id}', 'NippoController@update');
+$app->delete('api/nippoes/{id}', 'NippoController@delete');

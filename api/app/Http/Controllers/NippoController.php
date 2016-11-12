@@ -30,4 +30,11 @@ class NippoController extends BaseController
 
         return response()->json($nippo);
     }
+
+    public function delete($id){
+        $nippo = Nippo::find($id);
+        $nippo->delete();
+
+        return response()->json('deleted');
+    }
 }
