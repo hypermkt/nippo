@@ -9,3 +9,9 @@ $ composer install
 ```
 $ vendor/bin/phpmig migrate
 ```
+
+## API
+```
+$ php -S localhost:8000 api/public/index.php
+```
+
