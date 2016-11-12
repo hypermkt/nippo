@@ -16,3 +16,4 @@ $app->get('/', function () use ($app) {
 });
 
 $app->get('api/nippoes', 'NippoController@index');
+$app->post('api/nippoes', 'NippoController@create');
