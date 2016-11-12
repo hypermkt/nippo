@@ -9,16 +9,29 @@
 
 <script>
 
+import Vue from 'vue';
+import VueResource from 'vue-resource';
+import _ from 'underscore';
+Vue.use(VueResource);
+
 export default {
   data: () => {
     return {
-      nippoes: [
-        { content: '今日も一日お疲れ様でした' },
-        { content: '今日も一日お疲れ様でした' },
-        { content: '今日も一日お疲れ様でした' },
-        { content: '今日も一日お疲れ様でした' },
-        { content: '今日も一日お疲れ様でした' },
-      ]
+      nippoes: []
+    }
+  },
+  created() {
+    this.fetchNippoes();
+  },
+  methods: {
+    fetchNippoes() {
+      console.log("fethNippoes");
+      Vue.http.get('http://localhost:8000/api/nippoes').then((response) => {
+        console.log("success");
+        this.nippoes = response.json();
+      }, (response) => {
+        console.log("failure");
+      });
     }
   }
 }
