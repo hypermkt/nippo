@@ -3,13 +3,14 @@
   "main": "main.js",
   "scripts": {
     "start": "npm-run-all --parallel server build",
-    "build": "browserify -e src/js/main.js -o public/app.js",
+    "build": "watchify -v browserify -e src/js/main.js -o public/app.js",
     "server": "http-server ./public -o -p 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "browserify": {
     "transform": [
       "babelify",
+      "vueify",
       "aliasify"
     ]
   },
@@ -30,6 +31,8 @@
     "babelify": "^7.3.0",
     "browserify": "^13.1.1",
     "http-server": "^0.9.0",
-    "npm-run-all": "^3.1.1"
+    "npm-run-all": "^3.1.1",
+    "vueify": "^9.2.4",
+    "watchify": "^3.7.0"
   }
 }
