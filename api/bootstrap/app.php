@@ -25,7 +25,9 @@ $app = new Laravel\Lumen\Application(
 
 // $app->withFacades();
 
-// $app->withEloquent();
+// DB接続に利用するためコメントを外す
+// ref: https://lumen.laravel.com/docs/5.2/database#basic-usage
+$app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
