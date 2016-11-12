@@ -1,4 +1,6 @@
 {
     "name": "vue-nippo-spa",
-    "require": {}
+    "require": {
+        "davedevelopment/phpmig": "^1.3"
+    }
 }
