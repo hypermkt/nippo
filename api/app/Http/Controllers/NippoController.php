@@ -21,4 +21,13 @@ class NippoController extends BaseController
 
         return response()->json($nippo);
     }
+
+    public function update(Request $request, $id)
+    {
+        $nippo = Nippo::find($id);
+        $nippo->content = $request->input('content');
+        $nippo->save();
+
+        return response()->json($nippo);
+    }
 }

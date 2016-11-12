@@ -19,4 +19,5 @@ $ php -S localhost:8000 api/public/index.php
 ```
 $ curl -v http://localhost:8000/api/nippoes | jq .
 $ curl -v -X -H "Accept: application/json" -H "Content-type: application/json" -X POST -d ' {"content": "hoge"}' http://localhost:8000/api/nippoes | jq .
+$ curl -v -X -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d ' {"content": "fuga"}' http://localhost:8000/api/nippoes/1
 ```
