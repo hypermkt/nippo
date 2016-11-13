@@ -1,17 +1,33 @@
 <template>
   <div>
     <h1>new nippo</h1>
-    <textarea></textarea>
-    <button>登録</button>
+    <textarea v-model="content"></textarea>
+    <button @click="createNippo">登録</button>
     <router-link :to="{ path: '/' }">back</router-lin>
   </div>
 </template>
 
 <script>
 
-export default {
-  methods: {
+import Vue from 'vue';
+import VueResource from 'vue-resource';
+Vue.use(VueResource);
 
+export default {
+  data: () => {
+    return {
+      content: ''
+    }
+  },
+  methods: {
+    createNippo() {
+      Vue.http.post('http://localhost:8000/api/nippoes', { content: this.content }).then((response) => {
+        console.log("success");
+        this.$router.push({ path: '/' });
+      }, (response) => {
+        console.log("failure");
+      });
+    }
   }
 }
 
