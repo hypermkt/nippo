@@ -1,19 +1,51 @@
 # vue-nippo-spa
 
-## Setup
-```sh
+## 概要
+* 本アプリケーションは[YAPC::Hokkaido 2016](http://yapcjapan.org/2016hokkaido/)の「Vue.jsによるWebアプリケーション開発」のトーク用に実装したサンプルアプリケーションです。
+* [Vue.js](https://github.com/vuejs/vue) + [vue-router](https://github.com/vuejs/vue-router) + [vue-resource](https://github.com/pagekit/vue-resource) + [Lumen](https://lumen.laravel.com/)
+
+## 必要条件
+* PHP 5.6.4以上
+* MySQLがローカル環境にインストール済みとし、root/パスワード無しでアクセス可能とする
+
+## 準備
+
+### DBのマイグレーション
+composer経由で各種ライブラリをインストールします
+```
 $ composer install
 ```
 
-## migration
+### DBのマイグレーション
+APIで利用するDBのマイグレーションを実行します
 ```
 $ vendor/bin/phpmig migrate
 ```
 
-## API
+### npmパッケージをインストール
+各種フロントエンドパッケージをインストールします
+```sh
+$ npm install
+```
+
+## 使い方
+
+### APIの起動
+PHPのビルトインサーバーを利用してAPIを起動します
 ```
 $ php -S localhost:8000 api/public/index.php
 ```
+
+### httpサーバーの起動
+```sh
+$ npm start
+```
+
+---
+
+以下はAPIドキュメントです
+
+## APIドキュメント
 
 ### Routing
 * GET /api/nippoes
