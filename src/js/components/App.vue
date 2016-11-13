@@ -2,7 +2,7 @@
   <div>
     <p><router-link :to="{ path: '/new' }">new nippo</router-link></p>
     <template v-for="nippo in nippoes">
-      <p>本文：{{ nippo.content }}</p>
+      <p>本文：{{ nippo.content }}</p> <router-link :to="{ name: 'edit', params: { id: nippo.id } }">編集</router-link>
     </template>
   </div>
 </template>
