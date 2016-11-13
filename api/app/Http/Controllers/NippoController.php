@@ -15,6 +15,13 @@ class NippoController extends BaseController
         return response()->json($nippoes);
     }
 
+    public function show($id)
+    {
+        $nippo = Nippo::find($id);
+
+        return response()->json($nippo);
+    }
+
     public function create(Request $request)
     {
         $nippo = Nippo::create($request->all());
