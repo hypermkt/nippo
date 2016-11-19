@@ -10,8 +10,7 @@
 <script>
 
 import Vue from 'vue';
-import VueResource from 'vue-resource';
-Vue.use(VueResource);
+import axios from 'axios';
 
 export default {
   data: () => {
@@ -21,12 +20,14 @@ export default {
   },
   methods: {
     createNippo() {
-      Vue.http.post('http://localhost:8000/api/nippoes', { content: this.content }).then((response) => {
-        console.log("success");
-        this.$router.push({ path: '/' });
-      }, (response) => {
-        console.log("failure");
-      });
+      axios.post('http://localhost:8000/api/nippoes', { content: this.content })
+        .then((response) => {
+          console.log(response);
+          this.$router.push({ path: '/' });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }
 }
