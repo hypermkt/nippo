@@ -1,5 +1,5 @@
 {
-  "name": "vue-nippo-spa",
+  "name": "nippo",
   "main": "main.js",
   "scripts": {
     "start": "npm-run-all --parallel server build",
