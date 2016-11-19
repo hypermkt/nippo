@@ -1,4 +1,4 @@
-import App from '../../../src/js/components/App.vue';
+import App from '../../../src/js/components/app.vue';
 
 describe('Appコンポーネント', function() {
   it('should have a created hook', function() {
