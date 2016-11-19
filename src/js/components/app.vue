@@ -23,7 +23,6 @@ export default {
   },
   methods: {
     fetchNippoes() {
-      console.log("fethNippoes");
       axios.get('http://localhost:8000/api/nippoes')
         .then((response) => {
           console.log("success");
