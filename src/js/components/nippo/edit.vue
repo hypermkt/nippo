@@ -27,7 +27,9 @@ export default {
     fetchNippo(nippoId) {
       Vue.http.get('http://localhost:8000/api/nippoes/' + nippoId).then((response) => {
         console.log("success");
-        this.content = response.json().content;
+        response.json().then((json) => {
+          this.content = json.content;
+        });
       }, (response) => {
         console.log("failure");
       });
