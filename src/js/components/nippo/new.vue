@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{ this.currentDate() }}
     <h1>new nippo</h1>
     <textarea v-model="content"></textarea>
     <button @click="createNippo">登録</button>
@@ -11,9 +12,11 @@
 
 import Vue from 'vue';
 import VueResource from 'vue-resource';
+import NippoDate from '../../mixins/nippo-date.js';
 Vue.use(VueResource);
 
 export default {
+  mixins: [NippoDate],
   data: () => {
     return {
       content: ''

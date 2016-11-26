@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{ this.currentDate() }}
     <p><router-link :to="{ path: '/new' }">new nippo</router-link></p>
     <template v-for="nippo in nippoes">
       <p>日付け: {{ toJpDate(nippo.created_at) }}</p>
@@ -13,9 +14,11 @@
 import Vue from 'vue';
 import VueResource from 'vue-resource';
 import moment from 'moment';
+import NippoDate from '../mixins/nippo-date.js';
 Vue.use(VueResource);
 
 export default {
+  mixins: [NippoDate],
   data: () => {
     return {
       nippoes: []
