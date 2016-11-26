@@ -17,7 +17,7 @@ describe('Appコンポーネント', () => {
     let nippoes = [ { content: 'hoge' } ];
 
     let resolved = new Promise.resolve({
-      json() { return nippoes }
+      json() { return new Promise.resolve(nippoes) }
     });
     const vm = new App()
     vm.$Vue.http = {

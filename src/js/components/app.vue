@@ -33,7 +33,10 @@ export default {
     },
     fetchNippoes() {
       Vue.http.get('http://localhost:8000/api/nippoes').then((response) => {
-        this.nippoes = response.json();
+        console.log("success");
+        response.json().then((nippoes) => {
+          this.nippoes = nippoes;
+        });
       }, (response) => {
         console.log("failure");
       });
