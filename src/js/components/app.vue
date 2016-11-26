@@ -21,6 +21,9 @@ export default {
       nippoes: []
     }
   },
+  computed: {
+    $Vue() { return Vue; }
+  },
   created() {
     this.fetchNippoes();
   },
@@ -29,9 +32,7 @@ export default {
       return moment(datetime).format('YYYY年MM月DD日');
     },
     fetchNippoes() {
-      console.log("fethNippoes");
       Vue.http.get('http://localhost:8000/api/nippoes').then((response) => {
-        console.log("success");
         this.nippoes = response.json();
       }, (response) => {
         console.log("failure");
