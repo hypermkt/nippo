@@ -11,7 +11,8 @@
 <script>
 
 import Vue from 'vue';
-import axios from 'axios';
+import VueResource from 'vue-resource';
+Vue.use(VueResource);
 
 export default {
   data: () => {
@@ -24,32 +25,28 @@ export default {
   },
   methods: {
     fetchNippo(nippoId) {
-      axios.get('http://localhost:8000/api/nippoes/' + nippoId)
-        .then((response) => {
-          console.log("success");
-          this.content = response.data.content;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      Vue.http.get('http://localhost:8000/api/nippoes/' + nippoId).then((response) => {
+        console.log("success");
+        this.content = response.json().content;
+      }, (response) => {
+        console.log("failure");
+      });
     },
     updateNippo() {
-      axios.put('http://localhost:8000/api/nippoes/' + this.$route.params.id, { content: this.content })
-        .then((response) => {
-          console.log("success");
-          this.$router.push({ path: '/' });
-        }).catch((error) => {
-          console.log(error);
-        });
+      Vue.http.put('http://localhost:8000/api/nippoes/' + this.$route.params.id, { content: this.content }).then((response) => {
+        console.log("success");
+        this.$router.push({ path: '/' });
+      }, (response) => {
+        console.log("failure");
+      });
     },
     deleteNippo() {
-      axios.delete('http://localhost:8000/api/nippoes/' + this.$route.params.id)
-        .then((response) => {
-          console.log("success");
-          this.$router.push({ path: '/' });
-        }).catch((response) => {
-          console.log("failure");
-        });
+      Vue.http.delete('http://localhost:8000/api/nippoes/' + this.$route.params.id).then((response) => {
+        console.log("success");
+        this.$router.push({ path: '/' });
+      }, (response) => {
+        console.log("failure");
+      });
     }
   }
 }

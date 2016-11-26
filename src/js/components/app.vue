@@ -11,8 +11,8 @@
 <script>
 
 import Vue from 'vue';
-import axios from 'axios';
-import moment from 'moment';
+import VueResource from 'vue-resource';
+Vue.use(VueResource);
 
 export default {
   data: () => {
@@ -24,18 +24,17 @@ export default {
     this.fetchNippoes();
   },
   methods: {
-    fetchNippoes() {
-      axios.get('http://localhost:8000/api/nippoes')
-        .then((response) => {
-          console.log("success");
-          this.nippoes = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
     toJpDate(datetime) {
       return moment(datetime).format('YYYY年MM月DD日');
+    },
+    fetchNippoes() {
+      console.log("fethNippoes");
+      Vue.http.get('http://localhost:8000/api/nippoes').then((response) => {
+        console.log("success");
+        this.nippoes = response.json();
+      }, (response) => {
+        console.log("failure");
+      });
     }
   }
 }
