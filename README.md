@@ -1,4 +1,4 @@
-# Nippo
+# Nippo [![wercker status](https://app.wercker.com/status/844ced4f65f2dfadc72f81c0532cd50d/s/master "wercker status")](https://app.wercker.com/project/byKey/844ced4f65f2dfadc72f81c0532cd50d)
 
 ## 概要
 * 本アプリケーションは[YAPC::Hokkaido 2016](http://yapcjapan.org/2016hokkaido/)の「Vue.jsによるWebアプリケーション開発」のトーク用に実装したサンプルアプリケーションです。
