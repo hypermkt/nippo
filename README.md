@@ -1,43 +1,47 @@
-# vue-nippo-spa
+# Nippo
 
 ## 概要
 * 本アプリケーションは[YAPC::Hokkaido 2016](http://yapcjapan.org/2016hokkaido/)の「Vue.jsによるWebアプリケーション開発」のトーク用に実装したサンプルアプリケーションです。
+* 自分専用の日報Webアプリケーション。日報の投稿・一覧表示・削除。
 * [Vue.js](https://github.com/vuejs/vue) + [vue-router](https://github.com/vuejs/vue-router) + [vue-resource](https://github.com/pagekit/vue-resource) + [Lumen](https://lumen.laravel.com/)
 
 ## 必要条件
 * PHP 5.6.4以上
+  * Lumen 5.3で必要
 * MySQLがローカル環境にインストール済みとし、root/パスワード無しでアクセス可能とする
 
 ## 準備
-
 ### DBのマイグレーション
-composer経由で各種ライブラリをインストールします
+APIで利用するDBのマイグレーションを実行します。詳しくは[migrationsディレクトリ](./migrations)をご確認ください。
+
 ```
+# DBマイグレーションに必要なライブラリをダウンロードします
 $ composer install
-```
 
-### DBのマイグレーション
-APIで利用するDBのマイグレーションを実行します
-```
+# DBマイグレーションを実行します
 $ vendor/bin/phpmig migrate
 ```
 
 ### npmパッケージをインストール
 各種フロントエンドパッケージをインストールします
-```sh
+
+```
 $ npm install
 ```
 
 ## 使い方
 
 ### APIの起動
-PHPのビルトインサーバーを利用してAPIを起動します
+PHPのビルトインサーバーを利用してAPIを起動します。
+
 ```
 $ php -S localhost:8000 api/public/index.php
 ```
 
-### httpサーバーの起動
-```sh
+### Nippoをローカル起動
+下記コマンド実行後にブラウザで `http://127.0.0.1:8080/#/` が立ち上がり閲覧できるようになります。
+
+```
 $ npm start
 ```
 
@@ -48,11 +52,11 @@ $ npm start
 ## APIドキュメント
 
 ### Routing
-* GET /api/nippoes
-* GET /api/nippoes/:id
-* POST /api/nippoes
-* PUT /api/nippoes/:id
-* DELETE /api/nippoes/:id
+* [GET /api/nippoes](#get-apinippoes)
+* [GET /api/nippoes/:id](#get-apinippoesid)
+* [POST /api/nippoes](#post-apinippoes)
+* [PUT /api/nippoes/:id](#put-apinippoesid)
+* [DELETE /api/nippoes/:id](#delete-apinippoesid)
 
 #### GET /api/nippoes
 ##### リクエストパラメーター
@@ -126,6 +130,8 @@ $ npm start
 
 
 ### 確認用curl
+手元でAPIの挙動を確認したい際にご利用ください。
+
 ```
 $ curl -v http://localhost:8000/api/nippoes | jq .
 $ curl -v http://localhost:8000/api/nippoes/1 | jq .
