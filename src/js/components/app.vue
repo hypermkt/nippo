@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1 class="display-2 text-primary">nippo</h1>
-    <h2>{{ this.currentDate() }}</h2>
+    <nippo-header></nippo-header>
+
     <p><router-link :to="{ path: '/new' }" class="btn btn-info">new nippo</router-link></p>
     <template v-for="nippo in nippoes">
       <div class="card p-1">
@@ -16,16 +16,18 @@
 
 import Vue from 'vue';
 import VueResource from 'vue-resource';
+import Header from './header.vue';
 import moment from 'moment';
-import NippoDate from '../mixins/nippo-date.js';
 Vue.use(VueResource);
 
 export default {
-  mixins: [NippoDate],
   data: () => {
     return {
       nippoes: []
     }
+  },
+  components: {
+    'nippo-header': Header
   },
   computed: {
     $Vue() { return Vue; }

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1 class="display-2 text-primary">nippo</h1>
-    <h2>{{ this.currentDate() }}</h2>
+    <nippo-header></nippo-header>
+
     <div class="card p-1">
       <textarea class="form-control" rows="10" v-model="content"></textarea><br />
       <button @click="createNippo" class="btn btn-primary">登録</button>
@@ -14,15 +14,17 @@
 
 import Vue from 'vue';
 import VueResource from 'vue-resource';
-import NippoDate from '../../mixins/nippo-date.js';
+import Header from '../header.vue';
 Vue.use(VueResource);
 
 export default {
-  mixins: [NippoDate],
   data: () => {
     return {
       content: ''
     }
+  },
+  components: {
+    'nippo-header': Header
   },
   methods: {
     createNippo() {
