@@ -17,6 +17,7 @@
 import Vue from 'vue';
 import VueResource from 'vue-resource';
 import Header from './header.vue';
+import NippoDate from '../mixins/nippo-date.js';
 import moment from 'moment';
 Vue.use(VueResource);
 
@@ -26,6 +27,7 @@ export default {
       nippoes: []
     }
   },
+  mixins: [NippoDate],
   components: {
     'nippo-header': Header
   },
@@ -36,9 +38,6 @@ export default {
     this.fetchNippoes();
   },
   methods: {
-    toJpDate(datetime) {
-      return moment(datetime).format('YYYY年MM月DD日');
-    },
     fetchNippoes() {
       Vue.http.get('http://localhost:8000/api/nippoes').then((response) => {
         console.log("success");
