@@ -1,11 +1,13 @@
 <template>
   <div>
-    {{ this.currentDate() }}
-    <h1>edit nippo</h1>
-    <textarea v-model="content"></textarea>
-    <button @click="updateNippo">更新</button>
-    <button @click="deleteNippo">削除</button>
-    <router-link :to="{ path: '/' }">back</router-lin>
+    <h1 class="display-2 text-primary">nippo</h1>
+    <h2>{{ this.currentDate() }}</h2>
+    <div class="card p-1">
+      <textarea class="form-control" rows="10" v-model="content"></textarea><br />
+      <button @click="updateNippo" class="btn btn-primary">更新</button>
+      <button @click="deleteNippo" class="btn btn-warning">削除</button>
+      <router-link :to="{ path: '/' }" class="btn btn-secondary">戻る</router-link>
+    </div>
   </div>
 </template>
 

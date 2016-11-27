@@ -1,10 +1,13 @@
 <template>
   <div>
-    {{ this.currentDate() }}
-    <p><router-link :to="{ path: '/new' }">new nippo</router-link></p>
+    <h1 class="display-2 text-primary">nippo</h1>
+    <h2>{{ this.currentDate() }}</h2>
+    <p><router-link :to="{ path: '/new' }" class="btn btn-info">new nippo</router-link></p>
     <template v-for="nippo in nippoes">
-      <p>日付け: {{ toJpDate(nippo.created_at) }}</p>
-      <p>本文：{{ nippo.content }}</p> <router-link :to="{ name: 'edit', params: { id: nippo.id } }">編集</router-link>
+      <div class="card p-1">
+        <h3 class="card-title">日付け {{ toJpDate(nippo.created_at) }}</h3>
+        <p class="card-text">{{ nippo.content }}</p> <router-link :to="{ name: 'edit', params: { id: nippo.id } }" class="btn btn-info">編集</router-link>
+      </div>
     </template>
   </div>
 </template>
