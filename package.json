@@ -2,7 +2,7 @@
   "name": "nippo",
   "main": "main.js",
   "scripts": {
-    "start": "npm-run-all --parallel server build",
+    "start": "npm-run-all --parallel server build api",
     "api": "php -S localhost:8000 api/public/index.php",
     "build": "watchify -v browserify -e src/js/main.js -o public/app.js",
     "server": "http-server ./public -o -p 8080",
