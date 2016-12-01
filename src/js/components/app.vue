@@ -19,6 +19,7 @@ import VueResource from 'vue-resource';
 import Header from './header.vue';
 import NippoDate from '../mixins/nippo-date.js';
 import moment from 'moment';
+import axios from 'axios';
 Vue.use(VueResource);
 
 export default {
@@ -31,20 +32,22 @@ export default {
   components: {
     'nippo-header': Header
   },
-  computed: {
-    $Vue() { return Vue; }
-  },
   created() {
     this.fetchNippoes();
   },
   methods: {
     fetchNippoes() {
-      Vue.http.get('http://localhost:8000/api/nippoes').then((response) => {
+      axios.get('http://localhost:8000/api/nippoes').then((response) => {
         console.log("success");
-        response.json().then((nippoes) => {
-          this.nippoes = nippoes;
-        });
-      }, (response) => {
+        console.log("response:" + response);
+        console.log("response.status:" + response.status);
+        console.log("response.data:" + response.data);
+        console.log("response.headers:" + response.headers);
+        this.nippoes = response.data;
+        // response.json().then((nippoes) => {
+        //   this.nippoes = nippoes;
+        // });
+      }).catch((response) => {
         console.log("failure");
       });
     }
