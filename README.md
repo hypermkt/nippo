@@ -19,6 +19,7 @@ APIで利用するDBのマイグレーションを実行します。詳しくは
 $ composer install
 
 # DBマイグレーションを実行します
+# 事前にcreate database nippo;でnipppoデータベースを作成してください。
 $ vendor/bin/phpmig migrate
 ```
 
