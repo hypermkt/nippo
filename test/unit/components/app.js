@@ -2,6 +2,7 @@ import Vue from 'vue';
 import _App from '../../../src/js/components/app.vue';
 import sinon from 'sinon';
 import axios from 'axios';
+import Promise from 'bluebird';
 
 const App = Vue.extend(_App);
 
@@ -21,9 +22,9 @@ describe('Appコンポーネント', () => {
     const vm = new App()
 
     vm.fetchNippoes();
-    setTimeout(() => {
+    resolved.then(() => {
       expect(vm.nippoes).to.be.eql(nippoes)
       done();
-    }, 0)
+    })
   })
 });
