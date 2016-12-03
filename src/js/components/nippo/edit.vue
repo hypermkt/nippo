@@ -15,10 +15,9 @@
 <script>
 
 import Vue from 'vue';
-import VueResource from 'vue-resource';
+import axios from 'axios';
 import Header from '../header.vue';
 import NippoDate from '../../mixins/nippo-date.js';
-Vue.use(VueResource);
 
 export default {
   data: () => {
@@ -35,28 +34,28 @@ export default {
   },
   methods: {
     fetchNippo(nippoId) {
-      Vue.http.get('http://localhost:8000/api/nippoes/' + nippoId).then((response) => {
+      axios.get('http://localhost:8000/api/nippoes/' + nippoId).then((response) => {
         console.log("success");
         response.json().then((json) => {
           this.nippo = json;
         });
-      }, (response) => {
+      }).catch((response) => {
         console.log("failure");
       });
     },
     updateNippo() {
-      Vue.http.put('http://localhost:8000/api/nippoes/' + this.$route.params.id, { content: this.nippo.content }).then((response) => {
+      axios.put('http://localhost:8000/api/nippoes/' + this.$route.params.id, { content: this.nippo.content }).then((response) => {
         console.log("success");
         this.$router.push({ path: '/' });
-      }, (response) => {
+      }).catch((response) => {
         console.log("failure");
       });
     },
     deleteNippo() {
-      Vue.http.delete('http://localhost:8000/api/nippoes/' + this.$route.params.id).then((response) => {
+      axios.delete('http://localhost:8000/api/nippoes/' + this.$route.params.id).then((response) => {
         console.log("success");
         this.$router.push({ path: '/' });
-      }, (response) => {
+      }).catch((response) => {
         console.log("failure");
       });
     }
