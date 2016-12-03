@@ -1,5 +1,8 @@
 import Vue from 'vue';
 import _App from '../../../src/js/components/app.vue';
+import sinon from 'sinon';
+import axios from 'axios';
+import Promise from 'bluebird';
 
 const App = Vue.extend(_App);
 
@@ -13,19 +16,15 @@ describe('Appコンポーネント', () => {
     let nippoes = [ { content: 'hoge' } ];
 
     let resolved = new Promise.resolve({
-      json() { return new Promise.resolve(nippoes) }
+      data: nippoes
     });
+    let stub = sinon.stub(axios, 'get').returns(resolved);
     const vm = new App()
-    vm.$Vue.http = {
-      get () {
-        return resolved;
-      }
-    }
 
     vm.fetchNippoes();
-    setTimeout(() => {
+    resolved.then(() => {
       expect(vm.nippoes).to.be.eql(nippoes)
       done();
-    }, 0)
+    })
   })
 });

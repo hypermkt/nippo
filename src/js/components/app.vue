@@ -15,11 +15,10 @@
 <script>
 
 import Vue from 'vue';
-import VueResource from 'vue-resource';
 import Header from './header.vue';
 import NippoDate from '../mixins/nippo-date.js';
 import moment from 'moment';
-Vue.use(VueResource);
+import axios from 'axios';
 
 export default {
   data: () => {
@@ -31,20 +30,14 @@ export default {
   components: {
     'nippo-header': Header
   },
-  computed: {
-    $Vue() { return Vue; }
-  },
   created() {
     this.fetchNippoes();
   },
   methods: {
     fetchNippoes() {
-      Vue.http.get('http://localhost:8000/api/nippoes').then((response) => {
-        console.log("success");
-        response.json().then((nippoes) => {
-          this.nippoes = nippoes;
-        });
-      }, (response) => {
+      axios.get('http://localhost:8000/api/nippoes').then((response) => {
+        this.nippoes = response.data;
+      }).catch((response) => {
         console.log("failure");
       });
     }
