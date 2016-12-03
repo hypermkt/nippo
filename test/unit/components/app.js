@@ -6,23 +6,16 @@ import axios from 'axios';
 const App = Vue.extend(_App);
 
 describe('Appコンポーネント', () => {
-  // it('メソッドが存在する', function() {
-  //   expect(_App.created).to.be.a('function');
-  //   expect(_App.methods.fetchNippoes).to.be.a('function');
-  // });
-
-  // var stub;
-  //
-  // afterEach(() => {
-  //   stub.restore();
-  // });
+  it('メソッドが存在する', function() {
+    expect(_App.created).to.be.a('function');
+    expect(_App.methods.fetchNippoes).to.be.a('function');
+  });
 
   it('fetchNippoesで日報一覧が取得できる', (done) => {
     let nippoes = [ { content: 'hoge' } ];
 
     let resolved = new Promise.resolve({
-      data: nippoes,
-      status: 200
+      data: nippoes
     });
     let stub = sinon.stub(axios, 'get').returns(resolved);
     const vm = new App()

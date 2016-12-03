@@ -38,15 +38,7 @@ export default {
   methods: {
     fetchNippoes() {
       axios.get('http://localhost:8000/api/nippoes').then((response) => {
-        console.log("success");
-        console.log("response:" + response);
-        console.log("response.status:" + response.status);
-        console.log("response.data:" + response.data);
-        console.log("response.headers:" + response.headers);
         this.nippoes = response.data;
-        // response.json().then((nippoes) => {
-        //   this.nippoes = nippoes;
-        // });
       }).catch((response) => {
         console.log("failure");
       });
