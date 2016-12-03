@@ -36,9 +36,7 @@ export default {
     fetchNippo(nippoId) {
       axios.get('http://localhost:8000/api/nippoes/' + nippoId).then((response) => {
         console.log("success");
-        response.json().then((json) => {
-          this.nippo = json;
-        });
+        this.nippo = response.data;
       }).catch((response) => {
         console.log("failure");
       });
