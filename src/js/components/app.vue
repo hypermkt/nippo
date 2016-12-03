@@ -15,12 +15,10 @@
 <script>
 
 import Vue from 'vue';
-import VueResource from 'vue-resource';
 import Header from './header.vue';
 import NippoDate from '../mixins/nippo-date.js';
 import moment from 'moment';
 import axios from 'axios';
-Vue.use(VueResource);
 
 export default {
   data: () => {
