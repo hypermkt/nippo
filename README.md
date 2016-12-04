@@ -6,9 +6,10 @@
 * [Vue.js](https://github.com/vuejs/vue) + [vue-router](https://github.com/vuejs/vue-router) + [vue-resource](https://github.com/pagekit/vue-resource) + [Lumen](https://lumen.laravel.com/)
 
 ## 必要条件
-* PHP 5.6.4以上
+* PHP 7.0.13以上
   * Lumen 5.3で必要
 * MySQLがローカル環境にインストール済みとし、root/パスワード無しでアクセス可能とする
+* NodeJS v6.9.1
 
 ## 準備
 ### DBのマイグレーション
