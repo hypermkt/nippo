@@ -12,15 +12,17 @@
 
 ## 準備
 ### DBのマイグレーション
-APIで利用するDBのマイグレーションを実行します。詳しくは[migrationsディレクトリ](./migrations)をご確認ください。
+APIで利用するDBのマイグレーションを実行します。詳しくは[migrationsディレクトリ](./api/migrations)をご確認ください。
 
 ```
 # DBマイグレーションに必要なライブラリをダウンロードします
+$ cd api
 $ composer install
 
 # DBマイグレーションを実行します
 # 事前にcreate database nippo;でnipppoデータベースを作成してください。
 $ vendor/bin/phpmig migrate
+$ cd ..
 ```
 
 ### npmパッケージをインストール
