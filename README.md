@@ -3,7 +3,7 @@
 ## 概要
 * 本アプリケーションは[YAPC::Hokkaido 2016](http://yapcjapan.org/2016hokkaido/)の「Vue.jsによるWebアプリケーション開発」のトーク用に実装したサンプルアプリケーションです。
 * 自分専用の日報Webアプリケーション。日報の投稿・一覧表示・削除。
-* [Vue.js](https://github.com/vuejs/vue) + [vue-router](https://github.com/vuejs/vue-router) + [vue-resource](https://github.com/pagekit/vue-resource) + [Lumen](https://lumen.laravel.com/)
+* [Vue.js](https://github.com/vuejs/vue) + [vue-router](https://github.com/vuejs/vue-router) + [axios](https://github.com/mzabriskie/axios) + [Lumen](https://lumen.laravel.com/)
 
 ## 必要条件
 * PHP 7.0.13以上
