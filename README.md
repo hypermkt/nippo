@@ -1,7 +1,7 @@
 # Nippo [![wercker status](https://app.wercker.com/status/844ced4f65f2dfadc72f81c0532cd50d/s/master "wercker status")](https://app.wercker.com/project/byKey/844ced4f65f2dfadc72f81c0532cd50d)
 
 ## 概要
-* 本アプリケーションは[YAPC::Hokkaido 2016](http://yapcjapan.org/2016hokkaido/)の「Vue.jsによるWebアプリケーション開発」のトーク用に実装したサンプルアプリケーションです。
+* 本アプリケーションは[YAPC::Hokkaido 2016](http://yapcjapan.org/2016hokkaido/)の「[Vue.jsによるWebアプリケーション開発](https://speakerdeck.com/hypermkt/vue-dot-jsniyoruwebapurikesiyonkai-fa)」のトーク用に実装したサンプルアプリケーションです。
 * 自分専用の日報Webアプリケーション。日報の投稿・一覧表示・削除。
 * [Vue.js](https://github.com/vuejs/vue) + [vue-router](https://github.com/vuejs/vue-router) + [axios](https://github.com/mzabriskie/axios) + [Lumen](https://lumen.laravel.com/)
 
