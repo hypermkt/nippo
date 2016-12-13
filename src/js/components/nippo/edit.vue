@@ -1,7 +1,5 @@
 <template>
   <div>
-    <nippo-header></nippo-header>
-
     <div class="card p-1">
       <h3 class="card-title">{{ toJpDate(nippo.created_at) }}の日報</h3>
       <textarea class="form-control" rows="10" v-model="nippo.content"></textarea><br />
@@ -16,7 +14,6 @@
 
 import Vue from 'vue';
 import axios from 'axios';
-import Header from '../header.vue';
 import NippoDate from '../../mixins/nippo-date.js';
 
 export default {
@@ -26,9 +23,6 @@ export default {
     }
   },
   mixins: [NippoDate],
-  components: {
-    'nippo-header': Header
-  },
   created() {
     this.fetchNippo(this.$route.params.id);
   },

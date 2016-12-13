@@ -1,7 +1,5 @@
 <template>
   <div>
-    <nippo-header></nippo-header>
-
     <div class="card p-1">
       <textarea class="form-control" rows="10" v-model="content"></textarea><br />
       <button @click="createNippo" class="btn btn-primary">登録</button>
@@ -14,16 +12,12 @@
 
 import Vue from 'vue';
 import axios from 'axios';
-import Header from '../header.vue';
 
 export default {
   data: () => {
     return {
       content: ''
     }
-  },
-  components: {
-    'nippo-header': Header
   },
   methods: {
     createNippo() {
