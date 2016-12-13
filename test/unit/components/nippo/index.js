@@ -1,15 +1,15 @@
 import Vue from 'vue';
-import _App from '../../../src/js/components/app.vue';
+import _Index from '../../../../src/js/components/nippo/index.vue';
 import sinon from 'sinon';
 import axios from 'axios';
 import Promise from 'bluebird';
 
-const App = Vue.extend(_App);
+const Index = Vue.extend(_Index);
 
 describe('Appコンポーネント', () => {
   it('メソッドが存在する', function() {
-    expect(_App.created).to.be.a('function');
-    expect(_App.methods.fetchNippoes).to.be.a('function');
+    expect(_Index.created).to.be.a('function');
+    expect(_Index.methods.fetchNippoes).to.be.a('function');
   });
 
   it('fetchNippoesで日報一覧が取得できる', (done) => {
@@ -19,7 +19,7 @@ describe('Appコンポーネント', () => {
       data: nippoes
     });
     let stub = sinon.stub(axios, 'get').returns(resolved);
-    const vm = new App()
+    const vm = new Index()
 
     vm.fetchNippoes();
     resolved.then(() => {
