@@ -1,5 +1,6 @@
 ## app
 public/app.js
+.php-version
 
 /vendor/
 ### https://raw.github.com/github/gitignore/c751b70cc6ec57de20f918dbf05448333ffa2191/Global/JetBrains.gitignore
