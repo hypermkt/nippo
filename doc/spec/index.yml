@@ -1,0 +1,86 @@
+swagger: '2.0'
+info:
+  title: 'nippo api'
+  description: 'YAPC::Hokkaido 2016の「Vue.jsによるWebアプリケーション開発」用に実装したサンプルアプリケーション甩APIです'
+  version: '1.0.0'
+basePath: /api
+paths:
+  /nippoes:
+    get:
+      summary: '日報一覧を取得する'
+      responses:
+        200:
+          description: '成功時のレスポンス'
+          schema:
+            type: 'array'
+            items: {
+              $ref: '#/definitions/Nippo'
+            }
+    post:
+      summary: '日報を投稿する'
+      responses:
+        201:
+          description: OK
+          schema:
+            $ref: '#/definitions/Nippo'
+  /nippoes/{nippoId}:
+    get:
+      summary: '日報を取得する'
+      parameters: 
+        - name: 'nippoId'
+          in: 'path'
+          description: '取得したい日報のID'
+          required: true
+          type: 'integer'
+          format: 'int32'
+      responses:
+        200:
+          description: '成功時のレスポンス'
+          schema:
+            $ref: '#/definitions/Nippo'
+    put:
+      summary: '日報を更新する'
+      parameters: 
+        - name: 'nippoId'
+          in: 'path'
+          description: '取得したい日報のID'
+          required: true
+          type: 'integer'
+          format: 'int32'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Nippo'
+    delete:
+      summary: '日報を削除する'
+      parameters: 
+        - name: 'nippoId'
+          in: 'path'
+          description: '取得したい日報のID'
+          required: true
+          type: 'integer'
+          format: 'int32'
+      responses:
+        200:
+          description: OK
+    
+definitions:
+  Nippo:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+        format: 'int32'
+        example: 1
+      content:
+        type: 'string'
+        example: 'hoge'
+      created_at:
+        type: 'string'
+        format: 'date-time'
+        example: '2016-11-12 06:45:56'
+      updated_at:
+        type: 'string'
+        format: 'date-time'
+        example: '2016-11-12 06:45:56'
